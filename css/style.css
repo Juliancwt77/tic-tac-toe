@@ -1,0 +1,29 @@
+body {background-color: white;
+
+}
+
+h1{ color: grey;;
+
+
+ }
+
+h2 { color: blue;
+
+}
+
+.container {
+      width: 50%;
+      height: 50%;
+
+
+}
+
+.box { width: 200px;
+      height: 200px;
+      border: 3px solid white ;
+      background-color: #12a8d0;
+      float: left;
+      margin: 0px;
+      border-color: white;
+
+}
