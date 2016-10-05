@@ -11,6 +11,16 @@ function init () {
   ];
 
 
+
+var resetButton = document.getElementById('resetGame');
+resetButton.addEventListener("click", reset);
+
+function reset() {
+
+  location.reload();
+
+}
+
   // var winning combination = [[][][]]
   var td1 = document.getElementById("td1");
   var td2 = document.getElementById("td2");
@@ -22,55 +32,65 @@ function init () {
   var td8 = document.getElementById("td8");
   var td9 = document.getElementById("td9");
 
+  var allBox = document.getElementById("box");
+
+
+
+
+
   function winCondition(arr) {
+
+    // double click
+
+
 
 // X is winner
     if ( td1.textContent === "X" && td2.textContent === "X" && td3.textContent === "X" ) {
 
-      alert('X is the Winner')
+      alert('X is the Winner.Please click Reset Game')
 
     }
 
     else if (td4.textContent === "X" && td5.textContent === "X" && td6.textContent === "X") {
 
-      alert('X is the Winner')
+      alert('X is the Winner.Please click Reset Game')
 
     }
 
     else if (td7.textContent === "X" && td8.textContent === "X" && td9.textContent === "X") {
 
-      alert('X is the Winner')
+      alert('X is the Winner.Please click Reset Game')
 
     }
 
 
     else if (td1.textContent === "X" && td4.textContent === "X" && td7.textContent === "X") {
 
-              alert('X is the Winner')
+              alert('X is the Winner.Please click Reset Game')
 
       }
 
     else if (td2.textContent === "X" && td5.textContent === "X" && td8.textContent === "X") {
 
-        alert('X is the Winner')
+        alert('X is the Winner.Please click Reset Game')
 
     }
 
     else if (td3.textContent === "X" && td6.textContent === "X" && td9.textContent === "X") {
 
-            alert('X is the Winner')
+            alert('X is the Winner.Please click Reset Game')
 
     }
 
     else if (td1.textContent === "X" && td5.textContent === "X" && td9.textContent === "X") {
 
-              alert('X is the Winner')
+              alert('X is the Winner.Please click Reset Game')
 
       }
 
     else if (td3.textContent === "X" && td5.textContent === "X" && td7.textContent === "X") {
 
-        alert('X is the Winner')
+        alert('X is the Winner.Please click Reset Game')
 
     }
 
@@ -78,57 +98,60 @@ function init () {
 
 if ( td1.textContent === "O" && td2.textContent === "O" && td3.textContent === "O" ) {
 
-  alert('O is the Winner')
+  alert('O is the Winner.Please click Reset Game')
 
 }
 
 else if (td4.textContent === "O" && td5.textContent === "O" && td6.textContent === "O") {
 
-  alert('O is the Winner')
+  alert('O is the Winner.Please click Reset Game')
 
 }
 
 else if (td7.textContent === "O" && td8.textContent === "O" && td9.textContent === "O") {
 
-  alert('O is the Winner')
+  alert('O is the Winner.Please click Reset Game')
 
 }
 
 
 else if (td1.textContent === "O" && td4.textContent === "O" && td7.textContent === "O") {
 
-          alert('O is the Winner')
+          alert('O is the Winner.Please click Reset Game')
 
   }
 
 else if (td2.textContent === "O" && td5.textContent === "O" && td8.textContent === "O") {
 
-    alert('O is the Winner')
+    alert('O is the Winner.Please click Reset Game')
 
 }
 
 else if (td3.textContent === "O" && td6.textContent === "O" && td9.textContent === "O") {
 
-        alert('O is the Winner')
+        alert('O is the Winner.Please click Reset Game')
 
 }
 
 else if (td1.textContent === "O" && td5.textContent === "O" && td9.textContent === "O") {
 
-          alert('O is the Winner')
+          alert('O is the Winner.Please click Reset Game')
   }
 
 else if (td3.textContent === "O" && td5.textContent === "O" && td7.textContent === "O") {
 
-    alert('O is the Winner')
+    alert('O is the Winner.Please click Reset Game')
 
 }
 
 
+ else if (clickCount === 9) {
+      alert("It's a tie! .Please click Reset Game")
 
 }
-  //
-  //  }
+
+}
+
 
   var currentPlayer = 1
 
@@ -136,10 +159,29 @@ else if (td3.textContent === "O" && td5.textContent === "O" && td7.textContent =
 
   for (var i = 0; i < boxes.length; i++) {
 
+
+
     boxes[i].addEventListener('click', boxClick)
+
+
+
   }
 
   function boxClick() {
+
+    clickCount += 1;
+
+    if (
+
+      allBox[this.id].innerHTML === "X" || allBox[this.id].innerHTML === "O"
+
+
+    ) {
+
+      alert('Please choose another box');
+    }
+
+ else {
 
     // alert('box' + this.id + 'is clicked')
     // this.classList.add('clickx')
@@ -156,13 +198,19 @@ else if (td3.textContent === "O" && td5.textContent === "O" && td7.textContent =
 
 
     }
+
     winCondition();
     switchPlayer();
 
+}
 
-  }
+}
 
   function switchPlayer() {
+
+
+
+
     if (currentPlayer === 1) {
 
       currentPlayer = 2
@@ -173,70 +221,6 @@ else if (td3.textContent === "O" && td5.textContent === "O" && td7.textContent =
       currentPlayer = 1
     }
 
-  }
 
 }
-
-// function winCondition(arr) {
-//   for (var i = 0; i < gameBoard.length; i++) {
-//     // Horizontal win condition
-//     if (gameBoard[i][0] === player && gameBoard[i][0] === gameBoard[i][1] && gameBoard[i][1] === gameBoard[i][2]) {
-//
-//       alert('Player ' + player + ' wins this round!')
-//
-//     }
-//   }
-
-
-
-
-
-
-
-
-
-// Function winner () {
-// if document.getElementById("td1").textContent = "X" {
-//     alert("win")
-
-
-
-
-
-
-
-
-// document.getElementById("td1").onclick = click;
-// document.getElementById("td2").onclick = click;
-// document.getElementById("td3").onclick = click;
-// document.getElementById("td4").onclick = click;
-// document.getElementById("td5").onclick = click;
-// document.getElementById("td6").onclick = click;
-// document.getElementById("td7").onclick = click;
-// document.getElementById("td8").onclick = click;
-// document.getElementById("td9").onclick = click;
-//
-// function click() {
-//     if (this.id == "td1") {
-//         document.getElementById("td1").textContent = "X";
-//     } else if (this.id == "td2") {
-//         document.getElementById("td2").textContent = "X";
-//     } else if (this.id == "td3") {
-//         document.getElementById("td3").textContent = "X";
-//
-//     } else if (this.id == "td4") {
-//         document.getElementById("td4").textContent = "X";
-//     } else if (this.id == "td5") {
-//         document.getElementById("td5").textContent= "X";
-//     } else if (this.id == "td6") {
-//         document.getElementById("td6").textContent = "X";
-//
-//     } else if (this.id == "td7") {
-//         document.getElementById("td7").textContent = "X";
-//     } else if (this.id == "td8") {
-//         document.getElementById("td8").textContent = "X";
-//     } else if (this.id == "td9") {
-//         document.getElementById("td9").textContent = "X";
-//
-//     }
-// }
+}
